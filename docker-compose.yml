@@ -114,6 +114,38 @@ services:
     networks:
       - app-network
 
+  frontend-host:
+    build: ./frontend/host
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/host:/app
+      - /app/node_modules
+    networks:
+      - app-network
+    depends_on:
+      - nginx-gateway
+
+  frontend-auth:
+    build: ./frontend/auth
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./frontend/auth:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+  frontend-tasks:
+    build: ./frontend/tasks
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./frontend/tasks:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
