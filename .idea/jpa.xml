@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="auth-service" name="auth-service" framework="JPA" ormUnit="auth-service:auth-service" defaultDataSourceId="7de61264-4020-47f0-a660-39097159882c" />
+    </persistence-units>
+  </component>
+</project>
