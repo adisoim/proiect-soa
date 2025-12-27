@@ -1,17 +1,21 @@
-// auth/src/Register.tsx
 import React, { useState } from "react";
 
 interface RegisterProps {
-  onRegisterSuccess: () => void; // Ne trimite la Login dupa succes
-  onSwitchToLogin: () => void;   // Link "Ai deja cont?"
+  onRegisterSuccess: () => void;
+  onSwitchToLogin: () => void;
 }
 
 const Register: React.FC<RegisterProps> = ({ onRegisterSuccess, onSwitchToLogin }) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleRegister = async () => {
+    if (!username || !password) {
+      setError("All fields are required.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost/auth/register", {
         method: "POST",
@@ -20,43 +24,94 @@ const Register: React.FC<RegisterProps> = ({ onRegisterSuccess, onSwitchToLogin 
       });
 
       if (response.ok) {
-        alert("Cont creat cu succes! Te rugăm să te loghezi.");
-        onRegisterSuccess(); // Ne intoarcem la ecranul de Login
+        alert("Account created successfully! You can now log in.");
+        onRegisterSuccess();
       } else {
-        setMessage("Eroare la înregistrare.");
+        setError("Registration error (possibly existing user).");
       }
     } catch (e) {
       console.error("Register error", e);
-      setMessage("Server indisponibil.");
+      setError("Server unavailable.");
     }
   };
 
+  const inputStyle = {
+    width: "100%",
+    padding: "12px",
+    marginBottom: "15px",
+    border: "1px solid #ddd",
+    borderRadius: "6px",
+    fontSize: "1rem",
+    boxSizing: "border-box" as const,
+    outline: "none"
+  };
+
   return (
-    <div style={{ border: "1px solid green", padding: "20px", margin: "10px", textAlign: "center" }}>
-      <h2>🆕 Creează Cont</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "300px", margin: "0 auto" }}>
+    <div style={{
+      background: "white",
+      padding: "40px",
+      borderRadius: "12px",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+      textAlign: "center",
+      width: "100%",
+      maxWidth: "400px"
+    }}>
+      <div style={{ marginBottom: "20px" }}>
+        <span style={{ fontSize: "3rem" }}>👤</span>
+        <h2 style={{ color: "#2c3e50", margin: "10px 0 0 0" }}>Create Account</h2>
+        <p style={{ color: "#777", fontSize: "0.9rem" }}>It only takes a few seconds.</p>
+      </div>
+
+      <div style={{ textAlign: "left" }}>
+        <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#555" }}>New Username</label>
         <input
-          placeholder="Username nou"
+          placeholder="Choose a username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          style={{ padding: "8px" }}
+          onChange={(e) => { setUsername(e.target.value); setError(""); }}
+          style={inputStyle}
         />
+
+        <label style={{ display: "block", marginBottom: "5px", fontWeight: "bold", color: "#555" }}>New Password</label>
         <input
           type="password"
-          placeholder="Parolă nouă"
+          placeholder="Choose a strong password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: "8px" }}
+          onChange={(e) => { setPassword(e.target.value); setError(""); }}
+          style={inputStyle}
         />
-        <button onClick={handleRegister} style={{ padding: "8px", background: "green", color: "white", cursor: "pointer" }}>
-          Înregistrează-te
-        </button>
-        
-        {message && <p style={{ color: "red" }}>{message}</p>}
-        
-        <p style={{ fontSize: "0.9em", marginTop: "10px" }}>
-          Ai deja cont? <span onClick={onSwitchToLogin} style={{ color: "blue", cursor: "pointer", textDecoration: "underline" }}>Loghează-te aici</span>
-        </p>
+      </div>
+
+      {error && <div style={{ color: "#dc3545", marginBottom: "15px", fontSize: "0.9rem", fontWeight: "bold" }}>{error}</div>}
+
+      <button
+        onClick={handleRegister}
+        style={{
+          width: "100%",
+          padding: "12px",
+          background: "#28a745",
+          color: "white",
+          border: "none",
+          borderRadius: "6px",
+          fontSize: "1.1rem",
+          fontWeight: "bold",
+          cursor: "pointer",
+          marginBottom: "20px",
+          boxShadow: "0 2px 5px rgba(40, 167, 69, 0.3)"
+        }}
+      >
+        Register
+      </button>
+
+      <div style={{ borderTop: "1px solid #eee", paddingTop: "20px", fontSize: "0.95rem" }}>
+        Already have an account?{" "}
+        <span
+          onClick={onSwitchToLogin}
+          style={{ color: "#007bff", cursor: "pointer", fontWeight: "bold" }}
+          onMouseOver={(e) => (e.currentTarget.style.textDecoration = "underline")}
+          onMouseOut={(e) => (e.currentTarget.style.textDecoration = "none")}
+        >
+          Log in here
+        </span>
       </div>
     </div>
   );
