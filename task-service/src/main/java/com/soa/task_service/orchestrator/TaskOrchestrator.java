@@ -25,8 +25,6 @@ public class TaskOrchestrator {
             JsonNode jsonPayload = objectMapper.readTree(message);
 
             long id = jsonPayload.get("id").asLong();
-            String user = jsonPayload.get("username").asText();
-            String title = jsonPayload.get("title").asText();
 
             rabbitTemplate.convertAndSend(RabbitConfig.EMAIL_QUEUE, message);
 
