@@ -1,0 +1,79 @@
+version: 2
+updates:
+  # npm - frontend/auth
+  - package-ecosystem: "npm"
+    directory: "/frontend/auth"
+    schedule:
+      interval: "weekly"
+
+  # npm - frontend/tasks
+  - package-ecosystem: "npm"
+    directory: "/frontend/tasks"
+    schedule:
+      interval: "weekly"
+
+  # npm - frontend/host
+  - package-ecosystem: "npm"
+    directory: "/frontend/host"
+    schedule:
+      interval: "weekly"
+
+  # Maven - auth-service
+  - package-ecosystem: "maven"
+    directory: "/auth-service"
+    schedule:
+      interval: "weekly"
+
+  # Maven - task-service
+  - package-ecosystem: "maven"
+    directory: "/task-service"
+    schedule:
+      interval: "weekly"
+
+  # Maven - notification-service
+  - package-ecosystem: "maven"
+    directory: "/notification-service"
+    schedule:
+      interval: "weekly"
+
+  # Docker - auth-service
+  - package-ecosystem: "docker"
+    directory: "/auth-service"
+    schedule:
+      interval: "weekly"
+
+  # Docker - task-service
+  - package-ecosystem: "docker"
+    directory: "/task-service"
+    schedule:
+      interval: "weekly"
+
+  # Docker - notification-service
+  - package-ecosystem: "docker"
+    directory: "/notification-service"
+    schedule:
+      interval: "weekly"
+
+  # Docker - frontend/auth
+  - package-ecosystem: "docker"
+    directory: "/frontend/auth"
+    schedule:
+      interval: "weekly"
+
+  # Docker - frontend/tasks
+  - package-ecosystem: "docker"
+    directory: "/frontend/tasks"
+    schedule:
+      interval: "weekly"
+
+  # Docker - frontend/host
+  - package-ecosystem: "docker"
+    directory: "/frontend/host"
+    schedule:
+      interval: "weekly"
+
+  # Docker - openfaas-function
+  - package-ecosystem: "docker"
+    directory: "/openfaas-function"
+    schedule:
+      interval: "weekly"
