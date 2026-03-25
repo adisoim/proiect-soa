@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.14-alpine
 
 COPY --from=ghcr.io/openfaas/classic-watchdog:0.2.3 /fwatchdog /usr/bin/fwatchdog
 
