@@ -15,7 +15,7 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.27",
     "css-loader": "^7.1.4",
-    "postcss": "^8.2.1",
+    "postcss": "^8.5.8",
     "postcss-loader": "^8.0.0",
     "react-refresh": "^0.18.0",
     "ts-node": "^10.9.2",
