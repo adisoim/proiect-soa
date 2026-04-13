@@ -19,7 +19,7 @@
     "postcss-loader": "^8.0.0",
     "react-refresh": "^0.18.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3",
+    "typescript": "^6.0.2",
     "@tailwindcss/postcss": "^4.2.2",
     "tailwindcss": "^4.2.2"
   },
