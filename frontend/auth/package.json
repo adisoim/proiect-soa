@@ -20,7 +20,7 @@
     "postcss": "^8.5.9",
     "postcss-loader": "^8.2.1",
     "react-refresh": "^0.18.0",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2"
   },
