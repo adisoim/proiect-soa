@@ -24,7 +24,7 @@
     "tailwindcss": "^4.2.2"
   },
   "dependencies": {
-    "@module-federation/enhanced": "^2.4.0",
+    "@module-federation/enhanced": "^2.5.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.6"
   }
