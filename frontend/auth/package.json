@@ -8,7 +8,7 @@
     "start": "rspack serve --mode development --host 0.0.0.0"
   },
   "devDependencies": {
-    "@rspack/cli": "~2.0.5",
+    "@rspack/cli": "~2.0.6",
     "@rspack/core": "~2.0.3",
     "@rspack/plugin-react-refresh": "~2.0.0",
     "@tailwindcss/postcss": "^4.3.0",
