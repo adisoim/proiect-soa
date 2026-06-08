@@ -26,6 +26,6 @@
   "dependencies": {
     "@module-federation/enhanced": "^2.4.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.7"
   }
 }
