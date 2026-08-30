@@ -22,7 +22,7 @@
     "react-refresh": "^0.18.0",
     "tailwindcss": "^4.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "@module-federation/enhanced": "^2.5.1",
