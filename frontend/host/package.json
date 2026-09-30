@@ -12,7 +12,7 @@
     "@rspack/core": "~2.2.7",
     "@rspack/plugin-react-refresh": "~2.0.2",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.5.4",
     "css-loader": "^7.1.5",
     "postcss": "^8.5.15",
@@ -26,6 +26,6 @@
   "dependencies": {
     "@module-federation/enhanced": "^2.9.0",
     "react": "^19.2.6",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.3.0"
   }
 }
